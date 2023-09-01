@@ -29,9 +29,9 @@ jobs:
           cd build/web
           git init
           git config --global user.email alfredopaulo2003@gmail.com
-          git config --global user.name AlfredoPaulo
+          git config --global user.name alfredopaulo
           git status
-          git remote add origin https://${{secrets.token}}@github.com/toshiossada/toshiossada.github.io.git
+          git remote add origin https://${{secrets.token}}@github.com/alfredopaulo/alfredopaulo.github.io.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
