@@ -25,9 +25,12 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+      
+      - name: Test with Flutter
+        run: flutter test
 
       - name: Build for the web
-        run: flutter build web
+        run: flutter build web 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
