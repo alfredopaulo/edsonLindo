@@ -1,39 +1,38 @@
-name: Deploy to Web
+name: Flutter Web
 
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Setup Java
-        uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v1
         with:
-          channel: 'stable'
+          channel: "stable"
 
       - name: Install dependencies
         run: flutter pub get
-      
-      - name: Test with Flutter
-        run: flutter test
 
-      - name: Build for the web
-        run: flutter build web 
+      - name: Build Web
+        run: flutter build web --release
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
+      - name: Deploy
+        run: |
+          cd build/web
+          git init
+          git config --global user.email alfredopaulo2003@gmail.com
+          git config --global user.name AlfredoPaulo
+          git status
+          git remote add origin https://${{secrets.token}}@github.com/toshiossada/toshiossada.github.io.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m "update"
+          git push origin gh-pages -f
