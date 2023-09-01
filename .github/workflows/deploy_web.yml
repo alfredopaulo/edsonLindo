@@ -24,6 +24,9 @@ jobs:
       - name: Build Web
         run: flutter build web --release
 
+      - name: Run Tests
+        run: flutter test
+
       - name: Deploy
         run: |
           cd build/web
