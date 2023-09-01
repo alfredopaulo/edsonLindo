@@ -31,7 +31,6 @@ flutter:
 
   uses-material-design: true
 
-s
   assets:
     - images/edson1.jpg
     - images/edson2.jpg
