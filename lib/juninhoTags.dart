@@ -53,12 +53,12 @@ class _NavigationExampleState extends State<NavigationExample> {
           child: ImageCarousel([
             'images/edson1.jpg',
             'images/edson2.jpg',
-            // 'images/edson3.jpg',
-            // 'images/edson4.jpg',
-            // 'images/edson5.jpg',
-            // 'images/edson6.jpg',
-            // 'images/edson7.jpg',
-            // 'images/edson8.jpg',
+            'images/edson3.jpg',
+            'images/edson4.jpg',
+            'images/edson5.jpg',
+            'images/edson6.jpg',
+            'images/edson7.jpg',
+            'images/edson8.jpg',
             // Adicione mais caminhos para outras imagens...
           ]),
         ),
